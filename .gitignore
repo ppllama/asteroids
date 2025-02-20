@@ -1,0 +1,9 @@
+# Ignore virtual environment files
+venv/
+
+# Python-generated cache files
+__pycache__/
+*.pyc
+
+# Temporary or swap files
+*.swp
