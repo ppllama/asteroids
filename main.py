@@ -6,7 +6,7 @@ def main():
     print("Starting Asteroids!")
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     while True:
-        print("foo")
+        # print("foo")
 
 if __name__ == "__main__":
     main()
