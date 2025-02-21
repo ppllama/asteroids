@@ -19,14 +19,17 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
+        dt = clock.tick(60) / 1000
+        print(f"FPS: {clock.get_fps():.1f}")
+        player.update(dt)
+
         screen.fill((0,0,0))
         player.draw(screen)
-        player.update(dt)
+        
 
 
         pygame.display.flip()
-        dt = clock.tick(60)
-        dt /= 1000
+        
         # print("foo")
 
 if __name__ == "__main__":
