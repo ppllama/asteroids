@@ -11,8 +11,12 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    Player.containers = (updatable, drawable)
     player = Player(SCREEN_WIDTH/2,SCREEN_HEIGHT/2)
-    
+
     while True:
 
         for event in pygame.event.get():
@@ -20,17 +24,15 @@ def main():
                 return
 
         dt = clock.tick(60) / 1000
-        print(f"FPS: {clock.get_fps():.1f}")
-        player.update(dt)
+        updatable.update(dt)
 
         screen.fill((0,0,0))
-        player.draw(screen)
+        for functions in drawable:
+            functions.draw(screen)
         
 
 
         pygame.display.flip()
-        
-        # print("foo")
 
 if __name__ == "__main__":
     main()
