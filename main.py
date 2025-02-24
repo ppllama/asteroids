@@ -32,6 +32,10 @@ def main():
 
         dt = clock.tick(60) / 1000
         updatable.update(dt)
+        for asteroid in asteroids:
+            if asteroid.collision(player):
+                print("Game Over!")
+                return
 
         screen.fill((0,0,0))
         for functions in drawable:
