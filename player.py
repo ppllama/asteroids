@@ -7,6 +7,7 @@ class Player(CircleShape):
         super().__init__(x,y,PLAYER_RADIUS)
         self.rotation = 0
         self.timer = 0
+        self.autoshoot = False
 
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
@@ -40,6 +41,15 @@ class Player(CircleShape):
             self.move(-dt)
         if keys[pygame.K_SPACE]:
             self.shoot()
+        if keys[pygame.K_e]:
+            if self.autoshoot == False:
+                self.autoshoot = True
+            else:
+                self.autoshoot = False
+        if self.autoshoot == True:
+            self.shoot()
+                
+            
 
     def shoot(self):
         
